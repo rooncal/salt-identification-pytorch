@@ -1,3 +1,6 @@
+import torch.utils.data as data
+from PIL import Image
+
 class BinaryDataset(data.Dataset):
     def __init__(self, train_df, image_folder="/content/data",transform=None):
         self.images = image_folder

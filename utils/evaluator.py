@@ -1,3 +1,5 @@
+import torch
+
 class Evaluator(object):
     def __init__(self, writer, metrics_list=[], smooth=0):
       self.smooth = smooth

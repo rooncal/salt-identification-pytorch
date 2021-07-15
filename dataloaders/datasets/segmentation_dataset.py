@@ -1,3 +1,7 @@
+from PIL import Image
+from glob import glob
+import os
+
 class DataSetSegmentation(data.Dataset):
     def __init__(self, images_path, masks_path, transform=None):
         super(DataSetSegmentation, self).__init__()
