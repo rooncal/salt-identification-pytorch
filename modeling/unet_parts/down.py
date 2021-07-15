@@ -1,3 +1,6 @@
+from double_conv import DoubleConv
+import torch.nn as nn
+
 class Down(nn.Module):
     def __init__(self, in_channels, out_channels, dropout=0.2, use_bn=True):
         super().__init__()

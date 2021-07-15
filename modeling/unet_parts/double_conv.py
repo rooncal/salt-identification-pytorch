@@ -1,3 +1,5 @@
+import torch.nn as nn
+
 class Nothing(nn.Module):
   def __init__(self,*args):
     super(Nothing, self).__init__()

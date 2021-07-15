@@ -1,3 +1,5 @@
+import torch.nn as nn
+
 class OutConv(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(OutConv, self).__init__()

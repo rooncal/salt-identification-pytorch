@@ -1,9 +1,10 @@
 from unet_resnet_parts import *
+import torch.nn as nn
 
-class UnetResnetModel(nn.Module):
+class UnetResnet(nn.Module):
 
     def __init__(self, filters = 16, dropout = 0.2, use_bn = True):
-        super(UnetResnetModel, self).__init__()
+        super(UnetResnet, self).__init__()
         
         self.conv1 = nn.Sequential(
             nn.Conv2d(3, filters, 3, padding = 1),

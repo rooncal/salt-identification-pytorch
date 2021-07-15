@@ -1,3 +1,5 @@
+import torch.nn as nn
+
 class residualBlock(nn.Module):
     def __init__(self, in_channels, filters, size = 3, use_bn=True):
         super(residualBlock, self).__init__()

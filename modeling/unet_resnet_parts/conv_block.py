@@ -1,3 +1,5 @@
+import torch.nn as nn
+
 class convBlock(nn.Module):
     def __init__(self, in_channels, filters, size, stride = 1, activation = True, use_bn=True):
         super(convBlock, self).__init__()
