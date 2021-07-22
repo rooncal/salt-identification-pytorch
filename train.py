@@ -1,4 +1,4 @@
-from TGS_Salt_Seg.utils.translator import Translator
+from utils.translator import Translator
 import torch
 import os
 import sys
