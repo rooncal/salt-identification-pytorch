@@ -30,7 +30,7 @@ class ToTensor(object):
     return F.to_tensor(img), F.to_tensor(mask)
 
 class Resize(object):
-  def __init__(self, size=(256,256)):
+  def __init__(self, size=(128, 128)):
     self.size = size
 
   def __call__(self, img, mask):
