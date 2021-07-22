@@ -24,7 +24,7 @@ class FocalLoss(nn.Module):
 
     def forward(self, output, target, alpha=0.8, gamma=2, smooth=1):
         
-        output = torch..sigmoid(output)
+        output = torch.sigmoid(output)
         
         output = output.view(-1)
         target = target.view(-1)
