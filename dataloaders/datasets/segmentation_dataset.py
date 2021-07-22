@@ -1,3 +1,4 @@
+import torch.utils.data as data
 from PIL import Image
 from glob import glob
 import os
