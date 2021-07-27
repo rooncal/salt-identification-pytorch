@@ -1,4 +1,4 @@
-from utils.translator import Translator
+from .utils.translator import Translator
 import torch
 import os
 import sys
@@ -8,13 +8,13 @@ from torch.utils.data import DataLoader
 from torch.utils.data import sampler
 from torch.utils.tensorboard import SummaryWriter
 
-from utils.custom_loss_functions import DiceLoss, FocalLoss
-from utils.evaluator import Evaluator
-from modeling.unet import GenericUnet
-from modeling.unet_resnet import UnetResnet
-from dataloaders.custom_transformations import RandomRotate, RandomHorizontalFlip, RandomVerticalFlip, ToTensor, Resize, Normalize, Normalize_Mask, Compose
-from dataloaders.datasets.segmentation_dataset import DataSetSegmentation
-from mypath import Path
+from .utils.custom_loss_functions import DiceLoss, FocalLoss
+from .utils.evaluator import Evaluator
+from .modeling.unet import GenericUnet
+from .modeling.unet_resnet import UnetResnet
+from .dataloaders.custom_transformations import RandomRotate, RandomHorizontalFlip, RandomVerticalFlip, ToTensor, Resize, Normalize, Normalize_Mask, Compose
+from .dataloaders.datasets.segmentation_dataset import DataSetSegmentation
+from .mypath import Path
 
 
 class DualSummaryWriter(object):

@@ -1,4 +1,4 @@
-from unet_resnet_parts import *
+from .unet_resnet_parts import *
 import torch.nn as nn
 
 class UnetResnet(nn.Module):

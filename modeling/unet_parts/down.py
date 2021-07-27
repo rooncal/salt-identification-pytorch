@@ -1,4 +1,4 @@
-from double_conv import DoubleConv
+from .double_conv import DoubleConv
 import torch.nn as nn
 
 class Down(nn.Module):

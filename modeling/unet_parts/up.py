@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from double_conv import DoubleConv
+from .double_conv import DoubleConv
 
 class Up(nn.Module):
     def __init__(self, in_channels, out_channels, dropout=0.2, use_bn=True):

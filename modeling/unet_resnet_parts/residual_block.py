@@ -1,5 +1,5 @@
 import torch.nn as nn
-from conv_block import convBlock
+from .conv_block import convBlock
 
 class residualBlock(nn.Module):
     def __init__(self, in_channels, filters, size = 3, use_bn=True):
