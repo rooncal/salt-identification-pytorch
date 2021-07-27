@@ -1,7 +1,7 @@
-from unet_parts.double_conv import DoubleConv
-from unet_parts.down import Down
-from unet_parts.out_conv import OutConv
-from unet_parts.up import Up
+from .unet_parts.double_conv import DoubleConv
+from .unet_parts.down import Down
+from .unet_parts.out_conv import OutConv
+from .unet_parts.up import Up
 
 class GenericUnet(nn.Module):
     def __init__(self, n_channels, n_classes, dropout=0.2, use_bn=True):
