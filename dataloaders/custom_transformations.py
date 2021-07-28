@@ -1,3 +1,4 @@
+import torch
 import torchvision.transforms.functional as F
 import torchvision.transforms as T
 import random
