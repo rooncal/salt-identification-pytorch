@@ -120,9 +120,9 @@ class Translator(object):
 
     def get_lr_scheduler(self):
         schedulers = {
-            "reduce-on-plateau": nn.optim.lr_scheduler.ReduceLROnPlateau,
-            "step": nn.optim.lr_scheduler.StepLR,
-            "cos": nn.optim.lr_scheduler.CosineAnnealingLR,
+            "reduce-on-plateau": torch.optim.lr_scheduler.ReduceLROnPlateau,
+            "step": torch.optim.lr_scheduler.StepLR,
+            "cos": torch.optim.lr_scheduler.CosineAnnealingLR,
         }
         return schedulers[self.args.lr_scheduler]
         
