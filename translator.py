@@ -133,7 +133,7 @@ class Translator(object):
             kwargs["mode"] = "max"
         if self.args.lr_scheduler == "cos":
             kwargs["T_max"] = 10
-        if self.args.lr_schduler == "step":
+        if self.args.lr_scheduler == "step":
             kwargs["step_size"] = 10
         return kwargs
 
