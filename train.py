@@ -7,7 +7,7 @@ from torch.utils.data import sampler
 from torch.utils.tensorboard import SummaryWriter
 
 from utils.evaluator import Evaluator
-from utils.translator import Translator
+from translator import Translator
 
 
 class DualSummaryWriter(object):
