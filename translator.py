@@ -1,3 +1,7 @@
+import torch
+import torch.nn as nn
+
+
 from dataloaders.custom_transformations import RandomRotate, RandomHorizontalFlip, RandomVerticalFlip, ToTensor, Resize, Normalize_Mask, Compose
 from dataloaders.datasets.segmentation_dataset import DataSetSegmentation
 from torch.utils.data import DataLoader
