@@ -184,6 +184,8 @@ def main():
                       help="optimizer type (default: adam)")
   parser.add_argument('--patience', type=int, default=3, 
                       help="patience for on plateau lr scheduler")
+  parser.add_argument('--experiment-name', type=str ,default="training",
+                      help="experiment name, used for checkpoint and logs (default: training)")
 
   args = parser.parse_args()
   args.cuda = not args.no_cuda and torch.cuda.is_available()
