@@ -41,7 +41,6 @@ class Translator(object):
         self.translated_args = {
             "experiment_name": args.experiment_name,
             "model": self.get_model(),
-            "dataset": self.get_dataset(),
             "model_args": self.get_model_args(),
             "loss_function": self.get_loss_function(),
             "optimizer": self.get_optimizer(),
@@ -77,9 +76,6 @@ class Translator(object):
             print("Model Undefined!")
             raise NotImplementedError
 
-    def get_dataset(self):
-        return Path.db_root_dir(self.args.dataset)
-    
     def get_model_args(self):
         self.model_args = []
         if self.args.model == "unet":
