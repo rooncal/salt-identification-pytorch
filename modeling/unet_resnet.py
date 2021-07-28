@@ -1,4 +1,5 @@
-from .unet_resnet_parts import *
+from .unet_resnet_parts.deconv_block import deconvBlock
+from .unet_resnet_parts.residual_block import residualBlock
 import torch.nn as nn
 
 class UnetResnet(nn.Module):
