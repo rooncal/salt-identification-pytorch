@@ -148,7 +148,7 @@ def main():
   parser.add_argument('--no-bn', action='store_true', default=False,
                       help='will not use batch normalization (default: False')
   parser.add_argument('--loss-function', type=str, default='ce',
-                      choices=['ce','dice','focal'],
+                      choices=['ce','dice','focal','combo'],
                       help='loss function type (default: ce)')
   parser.add_argument('--epochs', type=int, default=10, metavar='N',
                       help='number of epochs to train (default: 10)')

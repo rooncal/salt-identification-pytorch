@@ -6,8 +6,7 @@ from dataloaders.custom_transformations import RandomRotate, RandomHorizontalFli
 from dataloaders.datasets.segmentation_dataset import DataSetSegmentation
 from torch.utils.data import DataLoader
 from torch.utils.data import sampler
-from utils.custom_loss_functions import DiceLoss, FocalLoss
-from utils.evaluator import Evaluator
+from utils.custom_loss_functions import DiceLoss, FocalLoss, ComboLoss
 from modeling.unet import GenericUnet
 from modeling.unet_resnet import UnetResnet
 from mypath import Path
@@ -91,6 +90,7 @@ class Translator(object):
             "ce": nn.BCEWithLogitsLoss,
             "dice": DiceLoss,
             "focal": FocalLoss,
+            "combo": ComboLoss,
         }
         return loss_functions[self.args.loss_function]
 
