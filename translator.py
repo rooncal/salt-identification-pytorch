@@ -138,7 +138,7 @@ class Translator(object):
         return kwargs
 
     def get_dataloader(self, phase):
-        images_path, masks_path = Path.db_root_dir(args.dataset)
+        images_path, masks_path = Path.db_root_dir(self.args.dataset)
         dataset = DataSetSegmentation(images_path=images_path, masks_path=masks_path, transform=self.transformations)
         if phase == "train":
             return DataLoader(dataset,self.args.batch_size,sampler=sampler.SubsetRandomSampler(range(3500)))
