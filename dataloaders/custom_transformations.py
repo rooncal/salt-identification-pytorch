@@ -56,3 +56,6 @@ class Compose(T.Compose):
         for t in self.transforms:
             img, mask = t(img, mask)
         return img, mask
+    
+    def __add__(self, other):
+      return Compose(self.transforms + other.transforms)
