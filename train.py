@@ -186,6 +186,10 @@ def main():
                       help="patience for on plateau lr scheduler")
   parser.add_argument('--experiment-name', type=str ,default="training",
                       help="experiment name, used for checkpoint and logs (default: training)")
+  parser.add_argument('--tensorboard-dir', type=str, default="/content/drive/MyDrive/experiments/SIC/DualWriter/runs",
+                      help='where to save tensorboard logs (default: /content/drive/MyDrive/experiments/SIC/DualWriter/runs )')
+  parser.add_argument('--checkpoint-dir', type=str, default="/content/drive/MyDrive/experiments/SIC/DualWriter/checkpoints",
+                      help="where to save the best checkpoint (default: content/drive/MyDrive/experiments/SIC/DualWriter/checkpoints)")
 
   args = parser.parse_args()
   args.cuda = not args.no_cuda and torch.cuda.is_available()
