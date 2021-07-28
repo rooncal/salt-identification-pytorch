@@ -178,7 +178,7 @@ def main():
                         help='put the epoch of the resuming file.')
   parser.add_argument('--checkpoint-interval', type=int, default=10,
                       help="checkpoint interval (default 10)")
-  parser.add_argument('--no-tdqm', action='store_true', default=False,
+  parser.add_argument('--no-tqdm', action='store_true', default=False,
                       help="disables tqdm while training")
   parser.add_argument('--optimizer', type=str, default="adam", choices=["adam", "RMSProp", "SGD"],
                       help="optimizer type (default: adam)")
