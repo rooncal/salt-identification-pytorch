@@ -44,11 +44,11 @@ class Normalize(object):
     self.img_std = img_std
 
   def __call__(self, img, mask):
-    return F.normalize(img, self.img_mean, self.img_std), mask // 65335
+    return F.normalize(img, self.img_mean, self.img_std), torch.div(mask, 65335, rounding_mode='floor')
 
 class Normalize_Mask(object):
   def __call__(self, img, mask):
-    return img, mask // 65335
+    return img, torch.div(mask, 65335, rounding_mode='floor')
 
 class Compose(T.Compose):
     def __call__(self, img, mask):

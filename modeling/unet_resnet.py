@@ -43,7 +43,7 @@ class UnetResnet(nn.Module):
         self.middle = nn.Sequential(
             nn.MaxPool2d(2, 2),
             nn.Dropout(dropout),
-            nn.Conv2d(filters * 8, filters * 16, 3, padding = 3//2),
+            nn.Conv2d(filters * 8, filters * 16, 3, padding = 1),
             residualBlock(filters * 16, filters * 16, use_bn=use_bn),
             residualBlock(filters * 16, filters * 16, use_bn=use_bn),
             nn.ReLU()
