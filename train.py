@@ -207,7 +207,7 @@ def main():
   trainer = Trainer(**translator.translated_args)
   print("Starting epochs:", trainer.epoch)
   print("Total epochs:", args.epochs)
-  trainer.train(args.epochs)
+  trainer.train(args.epochs, checkpoint_interval=args.checkpoint_interval)
   trainer.writer.close()
 
   
