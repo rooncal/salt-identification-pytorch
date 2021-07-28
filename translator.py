@@ -56,16 +56,16 @@ class Translator(object):
         }        
     
     def get_transformations(self):
-        transform = Compose()
+        transform = Compose([])
         if self.args.model == "unet":
             transform += Resize()
-        transform += Compose(
+        transform += Compose([
                 RandomRotate(),
                 RandomHorizontalFlip(),
                 RandomVerticalFlip(),
                 ToTensor(),
                 Normalize_Mask(),
-            )
+        ])
         return transform
 
     def get_model(self):
