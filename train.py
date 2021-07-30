@@ -131,11 +131,11 @@ class Trainer():
           'optimizer_state_dict': self.optimizer.state_dict(),
           'best_mIoU': self.best_mIoU,
           'scheduler': self.lr_scheduler,
-          }, os.path.join(self.model_checkpoint_dir,self.experiment_name,f"checkpoint_best")) 
+          }, os.path.join(self.model_checkpoint_dir,self.experiment_name,"checkpoint_best")) 
       
   def load_checkpoint(self, path=None):
     if not path:
-      path = os.path.join(self.model_checkpoint_dir,self.experiment_name,f"checkpoint_best")
+      path = os.path.join(self.model_checkpoint_dir,self.experiment_name,"checkpoint_best")
     checkpoint = torch.load(path)
     self.model.load_state_dict(checkpoint['model_state_dict'])
     self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
