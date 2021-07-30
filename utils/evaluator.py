@@ -44,10 +44,10 @@ class Evaluator(object):
       print(f"Epoch: {epoch}, { 'Validation' if phase == 'val' else 'Training'} Loss: {running_loss / length :.4f}")
       write(f"Loss", running_loss / length, epoch)
       for metric in self.metrics_list:
-        if metric is "mIoU":
+        if metric == "mIoU":
           write('mIoU', self.mIoU, epoch)
           print(f"Epoch: {epoch}, mIoU: {self.mIoU}")
-        if metric is "Accuracy":
+        if metric == "Accuracy":
           self.accuracy = float(self.correct) / self.num_samples
           write('Accuracy', self.accuracy, epoch)
           print(f"Epoch: {epoch}, Accuracy: {self.accuracy}")
