@@ -139,7 +139,7 @@ class Trainer():
     checkpoint = torch.load(path)
     self.model.load_state_dict(checkpoint['model_state_dict'])
     self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-    self.epoch = checkpoint['epoch']
+    self.epoch = checkpoint['epoch'] + 1
     self.lr_scheduler = checkpoint['scheduler']
     self.best_mIoU = checkpoint['best_mIoU']
     
