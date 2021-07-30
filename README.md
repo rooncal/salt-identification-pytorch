@@ -15,7 +15,7 @@ First I will show how to use this package:
 git clone https://github.com/rooncal/salt-identification-pytorch.git
 cd salt-identification-pytorch
 ```
-1. Install dependencies
+2. Install dependencies
 For PyTorch dependency, see pytorch.org for more details.
 
 For custom dependencies:
@@ -27,7 +27,7 @@ pip install PIL tqdm
 
 1. Configure your dataset path in `mypath.py`.
 
-1. run `python train.py` with your desired arguments (see possible arguments with `python train.py -h`):
+1. Run `python train.py` with your desired arguments (see possible arguments with `python train.py -h`):
 ```
 usage: train.py [-h] [--model {unet,unet-resnet}]
                 [--dataset {tgs_salt_identification}] [--no-bn]
