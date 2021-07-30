@@ -71,8 +71,9 @@ class Trainer():
       self.train_iter()
       if self.val_dataloader:
         self.val_iter()
-      if (self.epoch + 1) % checkpoint_interval == 0:
+      if self.evaluator.mIoU > self.best_mIoU:
         self.save_checkpoint()
+        self.best_mIoU = self.evaluator.mIoU
 
 
   def train_iter(self):
@@ -126,18 +127,19 @@ class Trainer():
           'epoch': self.epoch,
           'model_state_dict': self.model.state_dict(),
           'optimizer_state_dict': self.optimizer.state_dict(),
+          'best_mIoU': self.best_mIoU,
           'scheduler': self.lr_scheduler,
-          }, os.path.join(self.model_checkpoint_dir,self.experiment_name,f"checkpoint_{self.epoch}")) 
+          }, os.path.join(self.model_checkpoint_dir,self.experiment_name,f"checkpoint_best")) 
       
-  def load_checkpoint(self, path=None, epoch=0):
-    if epoch and not path:
-      path = os.path.join(self.model_checkpoint_dir,self.experiment_name,f"checkpoint_{epoch}")
+  def load_checkpoint(self, path=None):
+    if not path:
+      path = os.path.join(self.model_checkpoint_dir,self.experiment_name,f"checkpoint_best")
     checkpoint = torch.load(path)
     self.model.load_state_dict(checkpoint['model_state_dict'])
     self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     self.epoch = checkpoint['epoch']
     self.lr_scheduler = checkpoint['scheduler']
-    
+    self.best_mIoU = checkpoint['best_mIoU']
     
 def main():
   parser = argparse.ArgumentParser(description="PyTorch Unet/UnetResnet Training")
@@ -174,8 +176,6 @@ def main():
                         comma-separated list of integers only (default=0)')
   parser.add_argument('--resume', type=str, default=None,
                         help='put the path to resuming file if needed')
-  parser.add_argument('--resume-by-epoch', type=int, default=None,
-                        help='put the epoch of the resuming file.')
   parser.add_argument('--checkpoint-interval', type=int, default=10,
                       help="checkpoint interval (default 10)")
   parser.add_argument('--no-tqdm', action='store_true', default=False,
@@ -202,9 +202,15 @@ def main():
   
   if args.batch_size is None:
         args.batch_size = 4 * len(args.gpu_ids)
+  
    
   translator = Translator(args)
   trainer = Trainer(**translator.translated_args)
+
+  if args.resume:
+    trainer.load_checkpoint(path=args.resume)
+    
+
   print("Starting epochs:", trainer.epoch)
   print("Total epochs:", args.epochs)
   trainer.train(args.epochs, checkpoint_interval=args.checkpoint_interval)
@@ -213,3 +219,5 @@ def main():
   
 if __name__ == "__main__":
   main()
+
+
