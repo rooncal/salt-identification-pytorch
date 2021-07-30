@@ -58,7 +58,7 @@ class Translator(object):
     def get_transformations(self):
         transform = Compose([])
         if self.args.model == "unet":
-            transform += Resize()
+            transform += Compose([Resize()])
         transform += Compose([
                 RandomRotate(),
                 RandomHorizontalFlip(),
