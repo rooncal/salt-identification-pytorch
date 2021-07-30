@@ -69,7 +69,7 @@ class Trainer():
 
 
   def train(self, epochs):
-    for self.epoch in range(self.epoch, self.epochs + epochs):
+    for self.epoch in range(self.epoch, self.epoch + epochs):
       self.train_iter()
       if self.val_dataloader:
         self.val_iter()
