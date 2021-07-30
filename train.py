@@ -65,6 +65,8 @@ class Trainer():
       self.lr_scheduler = lr_scheduler(self.optimizer, **lr_scheduler_kwargs)
     else:
       self.lr_scheduler = None
+    self.best_mIoU = 0
+
 
   def train(self, total_epochs, checkpoint_interval=10):
     for self.epoch in range(self.epoch, total_epochs):
