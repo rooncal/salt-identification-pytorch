@@ -68,8 +68,8 @@ class Trainer():
     self.best_mIoU = 0
 
 
-  def train(self, total_epochs, checkpoint_interval=10):
-    for self.epoch in range(self.epoch, total_epochs):
+  def train(self, epochs):
+    for self.epoch in range(self.epoch, self.epochs + epochs):
       self.train_iter()
       if self.val_dataloader:
         self.val_iter()
@@ -178,8 +178,6 @@ def main():
                         comma-separated list of integers only (default=0)')
   parser.add_argument('--resume', type=str, default=None,
                         help='put the path to resuming file if needed')
-  parser.add_argument('--checkpoint-interval', type=int, default=10,
-                      help="checkpoint interval (default 10)")
   parser.add_argument('--no-tqdm', action='store_true', default=False,
                       help="disables tqdm while training")
   parser.add_argument('--optimizer', type=str, default="adam", choices=["adam", "RMSProp", "SGD"],
@@ -214,8 +212,8 @@ def main():
     
 
   print("Starting epochs:", trainer.epoch)
-  print("Total epochs:", args.epochs)
-  trainer.train(args.epochs, checkpoint_interval=args.checkpoint_interval)
+  print("Total epochs:", args.epochs + trainer.epoch)
+  trainer.train(args.epochs)
   trainer.writer.close()
 
   
